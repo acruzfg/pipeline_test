@@ -4,7 +4,7 @@ pipeline {
     parameters {
         choice(name: 'HogwartsHouse', choices: ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'], description: 'Which Hogwarts House do you belong?')
         string(name: 'VERSION', defaultValue: '', description: 'version to deploy')
-        booleanParam(name: 'executeTests', defaultValue: true, description: '')
+        booleanParam(name: 'CheckHouse', defaultValue: true, description: '')
         choice(name: 'HColor', choices: ['Red', 'Blue', 'Green', 'Yellow'], description: 'Select the color of you house')
         string(name: 'Alumni', defaultValue: 'Ale', description: 'you')
     }
@@ -39,7 +39,7 @@ pipeline {
         stage ("Checking your house") {
             when{
                 expression{
-                    params.Alumni == 'null'
+                    params.Alumni == 'null' || params.CheckHouse == true
                 }
             }
             steps {
