@@ -1,13 +1,16 @@
-def BuildGift() {
-    echo 'Building the gift ....'
+def RED() {
+    echo "You're a lion"
 }
 
-def TestApp() {
-    echo 'Dont know if its tough enough ....'
+def BLUE() {
+    echo "You're an eagle"
 }
 
-def DepApp() {
-    echo 'Sending the gift by FEDEX ....'
+def YELLOW() {
+    echo "You're a badger"
 }
 
+def GREEN() {
+    echo "You're a snake"
+}
 return this 
