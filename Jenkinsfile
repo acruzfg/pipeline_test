@@ -37,6 +37,11 @@ pipeline {
             }
         }
         stage ("Checking your house") {
+            when{
+                expression{
+                    params.Alumni == 'null'
+                }
+            }
             steps {
                 script{
                     echo "You're in ${HogwartsHouse}"
