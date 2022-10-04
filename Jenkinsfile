@@ -12,16 +12,11 @@ pipeline {
     }
     stages {
         stage('Build') {
-                steps {
-                script {
-                    gv=load "script.groovy"
-                }
-                withCredentials([
-                    usernamePassword(credentialsId: 'test-cred', usernameVariable: 'PW1', passwordVariable: 'PW2')]) {
-                    echo "My password is ${PW1} and ${PW2}!"
-    
-}
+            steps {
+                echo 'Building'
+                echo "building version ${NEW_VERSION}"
             }
+        }
         stage('Test') {
             when {
                 expression{
@@ -35,7 +30,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying'
-                echo "deploying ${params.VERSION}"
+                withCredentials([
+                    usernamePassword(credentials: 'f6d57fbc-fc9c-4bf6-837c-e951cb67b687', usernameVariable: USER, passwordVariable: PWD)
+                ]){
+                    sh "some script ${USER} ${PWD}"
+                }
             }
         }
     }
