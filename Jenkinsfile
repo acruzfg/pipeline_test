@@ -7,7 +7,6 @@ pipeline {
         booleanParam(name: 'executeTests', defaultValue: true, description: '')
         choice(name: 'HColor', choices: ['Red', 'Blue', 'Green', 'Yellow'], description: 'Select the color of you house')
         string(name: 'Alumni', defaultValue: 'Ale', description: 'you')
-        booleanParam(name: 'YES', defaultValue: false, description: 'Would you like to include a tres leches cake?')
     }
     environment {
         SERVER_CREDENTIALS = credentials('f6d57fbc-fc9c-4bf6-837c-e951cb67b687')
@@ -39,6 +38,8 @@ pipeline {
         }
         stage ("Checking your house") {
             steps {
+                script{
+                }
                 echo "You're in ${HogwartsHouse}"
             }
         }
