@@ -39,8 +39,8 @@ pipeline {
         stage ("Checking your house") {
             steps {
                 script{
+                    echo "You're in ${HogwartsHouse}"
                 }
-                echo "You're in ${HogwartsHouse}"
             }
         }
     }
