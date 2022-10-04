@@ -38,18 +38,8 @@ pipeline {
             }
         }
         stage ("Checking your house") {
-            when {
-            expression {
-                params.Alumni =! 'Ale'
-            }
-        }
             steps {
-                script{
-                    if (params.HColor == 'Red') {
-                    gv.RED()
-                    }else{
-                    echo "You're not in Gryffindor"                    }
-                }
+                echo "You're in ${HogwartsHouse}"
             }
         }
     }
