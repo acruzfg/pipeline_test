@@ -47,16 +47,8 @@ pipeline {
                 script{
                     if (params.HColor == 'Red') {
                     gv.RED()
-                    }
-                    if (params.HColor == 'Blue') {
-                    gv.BLUE()
-                    }
-                    if (params.HColor == 'Green') {
-                    gv.GREEN()
-                    }
-                    if (params.HColor == 'Yellow') {
-                    gv.YELLOW()
-                    }
+                    }else{
+                    echo "You're not in Gryffindor"                    }
                 }
             }
         }
