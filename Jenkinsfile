@@ -13,7 +13,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building'
+                    gv=load "script.groovy"
+                }
+                withCredentials([
+                    usernamePassword(credentialsId: 'test-cred', usernameVariable: 'PW1', passwordVariable: 'PW2')]) {
+                    echo "My password is ${PW1} and ${PW2}!"
+                    }
                 echo "building version ${NEW_VERSION}"
             }
         }
